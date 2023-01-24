@@ -50,7 +50,33 @@ class AppServiceProvider extends ServiceProvider
                         ->activeIcon('heroicon-s-home')
                         ->isActiveWhen(fn (): bool => request()->routeIs('filament.pages.dashboard'))
                         ->url(route('filament.pages.dashboard')),
+                  NavigationItem::make(__('Posts'))
+                        ->icon('heroicon-o-pencil-alt')
+                        ->activeIcon('heroicon-s-pencil-alt')
+                        ->badge(\App\Models\Post::count())
+                        ->isActiveWhen(fn (): bool => request()->routeIs('filament.resources.posts.*'))
+                        ->url(route('filament.resources.posts.index')),
+                 NavigationItem::make(__('Categories'))
+                        ->icon('heroicon-o-collection')
+                        ->activeIcon('heroicon-s-collection')
+                        ->badge(\App\Models\Category::count())
+                        ->isActiveWhen(fn (): bool => request()->routeIs('filament.resources.categories.*'))
+                        ->url(route('filament.resources.categories.index')),
+                NavigationItem::make(__('Photos'))
+                        ->icon('heroicon-o-camera')
+                        ->activeIcon('heroicon-s-camera')
+                        ->badge(\App\Models\Photo::count())
+                        ->isActiveWhen(fn (): bool => request()->routeIs('filament.resources.photos.*'))
+                        ->url(route('filament.resources.photos.index')),
+              NavigationItem::make(__('Videos'))
+                        ->icon('heroicon-o-video-camera')
+                        ->activeIcon('heroicon-s-video-camera')
+                        ->badge(\App\Models\Video::count())
+                        ->isActiveWhen(fn (): bool => request()->routeIs('filament.resources.videos.*'))
+                        ->url(route('filament.resources.videos.index')),
+
                 ])
+
                 ->groups([
                     NavigationGroup::make(__('Competitions'))
                         ->items([
@@ -70,21 +96,8 @@ class AppServiceProvider extends ServiceProvider
                                 ->isActiveWhen(fn (): bool => request()->routeIs('filament.resources.users.*'))
                                 ->url(route('filament.resources.users.index')),
                         ]),
-                    NavigationGroup::make(__('News'))
-                        ->items([
-                            NavigationItem::make(__('Posts'))
-                                ->icon('heroicon-o-pencil-alt')
-                                ->activeIcon('heroicon-s-pencil-alt')
-                                ->badge(\App\Models\Post::count())
-                                ->isActiveWhen(fn (): bool => request()->routeIs('filament.resources.posts.*'))
-                                ->url(route('filament.resources.posts.index')),
-                            NavigationItem::make(__('Categories'))
-                                ->icon('heroicon-o-collection')
-                                ->activeIcon('heroicon-s-collection')
-                                ->badge(\App\Models\Category::count())
-                                ->isActiveWhen(fn (): bool => request()->routeIs('filament.resources.categories.*'))
-                                ->url(route('filament.resources.categories.index')),
-                        ]),
+
+
                 ]);
         });
     }

@@ -53,7 +53,7 @@ class PostResource extends Resource
                             ->maxSize(1024),
 
                         Forms\Components\Select::make('category_id')
-                            ->relationship('category', 'name')
+                            ->relationship('category', 'slug')
                             ->searchable()
                             ->default(fn () => Category::where('slug', 'uncategorized')->first()?->id)
                             ->required(),

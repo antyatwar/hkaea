@@ -56,6 +56,7 @@ class News extends Component implements Forms\Contracts\HasForms
     {
         return view('livewire.news', [
             'posts' => \App\Models\Post::with('category')
+                ->whereNotIn('category_id', ['2','3','4','5','6'])
                 ->isPublished()
                 ->latest('published_at')
                 ->publishedBetween($this->form->getState('from'), $this->form->getState('to'))

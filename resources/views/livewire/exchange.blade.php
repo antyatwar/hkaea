@@ -30,21 +30,31 @@
     </div>
 
     <div class="max-w-7xl mx-auto px-4 my-10 grid grid-cols-1 md:grid-cols-3 gap-4">
-        @for($i = 0; $i < 6; $i++) <div class="grid gap-4">
-            <img src="{{ asset('/images/demo-post.jpg') }}" alt="{{ __(config('app.fullname')) }}" class="w-full" />
+      @foreach($posts as $post)
+        <div class="grid gap-4">
+              <a href="{{ route('post', $post) }}">
+                  <img src="{{ asset('/images/' . $post->image) }}"  alt="{{ $post->title }}" class="w-full" />
+              </a>
             <div>
                 <span class="bg-red-800 text-white px-4">
-                    {{ __('Exchange') }}
+                    {{ $post->category->name }}
                 </span>
                 <span class="ml-4">
-                    2022/10/10
+                  {{ $post->published_at->format('Y/m/d') }}
                 </span>
             </div>
             <h1 class="text-xl font-semibold mb-2">
-                {{ __('Title') }}
+                <a href="{{ route('post', $post) }}">
+                    {{ $post->title }}
+                </a>
             </h1>
     </div>
-    @endfor
+
+    @endforeach
+
+
+
+
 </div>
 
 <div class="max-w-7xl mx-auto px-4 mt-10">
@@ -55,30 +65,11 @@
 
 <div class="swiper mySwiper my-10">
     <div class="swiper-wrapper">
+        @foreach($photos as $photo)
         <div class="swiper-slide">
-            <img class="w-full" src="{{ asset('/images/inauguration/inauguration1.jpg') }}" alt="{{ __(config('app.fullname')) }}" />
+            <img class="w-full" src="{{ asset('/images/' . $photo->image) }}"  alt="{{ $photo->title }}"  />
         </div>
-        <div class="swiper-slide">
-            <img class="w-full" src="{{ asset('/images/inauguration/inauguration2.jpg') }}" alt="{{ __(config('app.fullname')) }}" />
-        </div>
-        <div class="swiper-slide">
-            <img class="w-full" src="{{ asset('/images/inauguration/inauguration3.jpg') }}" alt="{{ __(config('app.fullname')) }}" />
-        </div>
-        <div class="swiper-slide">
-            <img class="w-full" src="{{ asset('/images/inauguration/inauguration4.jpg') }}" alt="{{ __(config('app.fullname')) }}" />
-        </div>
-        <div class="swiper-slide">
-            <img class="w-full" src="{{ asset('/images/inauguration/inauguration5.jpg') }}" alt="{{ __(config('app.fullname')) }}" />
-        </div>
-        <div class="swiper-slide">
-            <img class="w-full" src="{{ asset('/images/inauguration/inauguration6.jpg') }}" alt="{{ __(config('app.fullname')) }}" />
-        </div>
-        <div class="swiper-slide">
-            <img class="w-full" src="{{ asset('/images/inauguration/inauguration7.jpg') }}" alt="{{ __(config('app.fullname')) }}" />
-        </div>
-        <div class="swiper-slide">
-            <img class="w-full" src="{{ asset('/images/inauguration/inauguration8.jpg') }}" alt="{{ __(config('app.fullname')) }}" />
-        </div>
+        @endforeach
     </div>
     <div class="swiper-pagination"></div>
 </div>
@@ -90,11 +81,12 @@
 </div>
 
 <div class="max-w-7xl mx-auto px-4 my-10 grid grid-cols-1 md:grid-cols-3 gap-4">
-    @for($i = 0; $i < 6; $i++) <div class="grid gap-4">
+      @foreach($videos as $video)
+      <div class="grid gap-4">
         <div class="responsive-iframe-container">
-            <iframe class="responsive-iframe" src="https://www.youtube.com/embed/52QjwUfRwG4"></iframe>
+            <iframe class="responsive-iframe" src="https://www.youtube.com/embed/{{ $video->videoid }}"></iframe>
         </div>
-</div>
-@endfor
+      </div>
+      @endforeach
 </div>
 </div>

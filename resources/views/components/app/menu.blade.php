@@ -11,7 +11,7 @@
         <img src="{{ asset('/images/icon-menu-3.png') }}" alt="{{ __(config('app.fullname')) }}" class="max-w-full w-7 md:w-10 lg:w-13 mx-auto" />
         <span class="group-hover:text-red-800">{{ __('Competition') }}</span>
     </a>
-    <a href="#" class="py-2 lg:py-0 lg:flex lg:flex-col items-center group">
+    <a href="{{ route('performance') }}" class="py-2 lg:py-0 lg:flex lg:flex-col items-center group">
         <img src="{{ asset('/images/icon-menu-4.png') }}" alt="{{ __(config('app.fullname')) }}" class="max-w-full w-7 md:w-10 lg:w-13 mx-auto" />
         <span class="group-hover:text-red-800">{{ __('Performance') }}</span>
     </a>
@@ -19,7 +19,7 @@
         <img src="{{ asset('/images/icon-menu-5.png') }}" alt="{{ __(config('app.fullname')) }}" class="max-w-full w-7 md:w-10 lg:w-13 mx-auto" />
         <span class="group-hover:text-red-800">{{ __('Exchange') }}</span>
     </a>
-    <a href="#" class="py-2 lg:py-0 lg:flex lg:flex-col items-center group">
+    <a href="{{ route('exhibition') }}" class="py-2 lg:py-0 lg:flex lg:flex-col items-center group">
         <img src="{{ asset('/images/icon-menu-6.png') }}" alt="{{ __(config('app.fullname')) }}" class="max-w-full w-7 md:w-10 lg:w-13 mx-auto" />
         <span class="group-hover:text-red-800">{{ __('Exhibition') }}</span>
     </a>
@@ -27,11 +27,11 @@
         <img src="{{ asset('/images/icon-menu-7.png') }}" alt="{{ __(config('app.fullname')) }}" class="max-w-full w-7 md:w-10 lg:w-13 mx-auto" />
         <span class="group-hover:text-red-800">{{ __('Training/Workshop') }}</span>
     </a>
-    <a href="#" class="py-2 lg:py-0 lg:flex lg:flex-col items-center group">
+    <a href="{{ route('school') }}" class="py-2 lg:py-0 lg:flex lg:flex-col items-center group">
         <img src="{{ asset('/images/icon-menu-8.png') }}" alt="{{ __(config('app.fullname')) }}" class="max-w-full w-7 md:w-10 lg:w-13 mx-auto" />
         <span class="group-hover:text-red-800">{{ __('School') }}</span>
     </a>
-    <a href="#" class="py-2 lg:py-0 lg:flex lg:flex-col items-center group">
+    <a href="{{ route('cooperation') }}" class="py-2 lg:py-0 lg:flex lg:flex-col items-center group">
         <img src="{{ asset('/images/icon-menu-9.png') }}" alt="{{ __(config('app.fullname')) }}" class="max-w-full w-7 md:w-10 lg:w-13 mx-auto" />
         <span class="group-hover:text-red-800">{{ __('Cooperation/Volunteer') }}</span>
     </a>

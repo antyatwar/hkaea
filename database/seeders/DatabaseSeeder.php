@@ -32,6 +32,8 @@ class DatabaseSeeder extends Seeder
             PostSeeder::class,
             CompetitionSeeder::class,
             ArtworkSeeder::class,
+            PhotoSeeder::class,
+            VideoSeeder::class,
         ]);
     }
 }

@@ -25,6 +25,26 @@ class CategorySeeder extends Seeder
 
         $categories = [
             [
+                'en' => 'Exchange',
+                'zh-hk' => '交流活動',
+            ],
+            [
+                'en' => 'Performance',
+                'zh-hk' => '表演',
+            ],
+            [
+                'en' => 'School',
+                'zh-hk' => '學校',
+            ],
+            [
+                'en' => 'Cooperation',
+                'zh-hk' => '合作/義工',
+            ],
+            [
+                'en' => 'Exhibition',
+                'zh-hk' => '展覽',
+            ],
+            [
                 'en' => 'Category A',
                 'zh-hk' => '類別 A',
             ],
